@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class = "raw">
+      To-do List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class = "white">
+  
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Add TO DO LIST</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="addlist" placeholder="Add New Item" class = "white"></ion-input> 
+    <ion-button (click) ="add()">
+      Add to List
+    </ion-button>
+  </ion-item>
+  <div id="container" class = "white">
+    <ion-grid [(ngModel)]="anyModel" *ngFor="let x of yay; let i = index">
+      <ion-row> 
+        <ion-col> 
+            <ion-checkbox class = "t" (click) = "checkBoxChecked(isChecked)"></ion-checkbox> 
+        </ion-col> 
+        <ion-col> 
+          <div>
+            <ion-input value="{{x}}"> </ion-input> 
+          </div>
+        </ion-col> 
+        <ion-col> <ion-button (click) = "edit(i)" class = "s" fill = "clear"> <ion-icon name="pencil-sharp"></ion-icon> </ion-button> </ion-col> 
+        <ion-col> <ion-button (click) ="delete(i)" class = "s" fill = "clear"> <ion-icon name="trash"></ion-icon> </ion-button> </ion-col> </ion-row>
+   </ion-grid>
+  </div>
+</ion-content>
